@@ -1,0 +1,21 @@
+.movieCard {
+    list-style: none;
+    font-size: 1.1rem;
+}
+
+.moviePoster {
+    border-radius: 10px;
+    background-color: azure;
+}
+
+.moviePoster:hover {
+    opacity: 90%;
+}
+
+.movieDetails {
+    justify-content: center;
+}
+
+.buttons {
+    padding: 10px;
+}
