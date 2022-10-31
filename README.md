@@ -10,3 +10,5 @@ Here you can see the films page, where you can find all the films that are avail
 Here you can see the details page, where you can see the information of a film or a series, with an option to see the trailer.
 
 <img src="images/FilmsProjectF2.png?raw=true" style="border-radius:50%">
+
+Data extracted from: The Movie Database (TMDB)
