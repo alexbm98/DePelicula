@@ -4,4 +4,4 @@ Web app where you can watch trailers of movies and series, including related inf
 ## Films page
 Here you can see the films page, where you can find all the films that are available.
 
-![Alt text](https://drive.google.com/file/d/1K6rnfAqGYdau5dKgsEyhb-wTHbLrOnGB/view?usp=sharing)
+![Alt text](images/FilmsProjectF1.png?raw=true)
