@@ -1,11 +1,19 @@
 .movieCard {
     list-style: none;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    font-style: oblique;
+}
+
+.movieName {
+    padding: 3px;
 }
 
 .moviePoster {
     border-radius: 10px;
     background-color: azure;
+    margin: 1px 0 0 1px;
+    box-shadow: 0 0 0 1px rgb(255, 255, 255);
 }
 
 .moviePoster:hover {

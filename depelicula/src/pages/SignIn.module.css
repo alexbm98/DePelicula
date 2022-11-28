@@ -1,0 +1,63 @@
+.centrado {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background: url('../images/login_bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+
+.container {
+    background-image: url(https://img.freepik.com/foto-gratis/elementos-cinematografia-sobre-fondo-amarillo-espacio-copia_23-2148457802.jpg?w=1380&t=st=1667593304~exp=1667593904~hmac=1352cb3dab08b54bfb27ba77ba6d88ab3e95182ef4e3da0bdf44be7b795d240f);
+}
+
+.loginButton {
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    margin-left: 1.75em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+    padding: 7px 15px;
+    border-width: 0.5px;
+    border-style: solid;
+    border-color:#3033c8;
+    background-color:white;
+    border-radius: 2px;
+    transition-duration: 0.4s;
+}
+
+.loginButton:hover {
+    background-color: #3033c8;
+    color: azure;
+}
+
+.auth_form {
+    width: 420px;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.auth_form_content {
+    padding-left: 12%;
+    padding-right: 12%;
+}

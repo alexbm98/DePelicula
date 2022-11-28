@@ -11,4 +11,5 @@ import com.example.DePeliculaBE.models.Film;
 public interface FilmRepository extends JpaRepository<Film,Long>
 {
 	public Optional<Film> findByTitle(String title);
+	public Optional<Film> deleteByTitle(String title);
 }

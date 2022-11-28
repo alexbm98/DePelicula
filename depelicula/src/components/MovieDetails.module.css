@@ -1,7 +1,17 @@
+body {
+    background: url('../images/main_bg.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
 .movieDetailsPoster {
     border-radius: 10px;
     background-color: azure;
     float: left;
+    margin: 1px 0 0 1px;
+    box-shadow: 0 0 0 1px rgb(255, 255, 255);
 }
 
 .movieDetailsPlace {
@@ -12,6 +22,7 @@
     list-style: none;
     font-size: large;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: azure;
 }
 
 .detailsElement {
@@ -39,14 +50,14 @@
     padding: 7px 15px;
     border-width: 0.5px;
     border-style: solid;
-    border-color:#31b2dd;
+    border-color:#480a69;
     background-color:white;
     border-radius: 2px;
     transition-duration: 0.4s;
 }
 
 .trailerButton:hover {
-    background-color: #31b2dd;
+    background-color: #480a69;
     color: azure;
 }
 

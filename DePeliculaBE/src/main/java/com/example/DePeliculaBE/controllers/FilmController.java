@@ -46,4 +46,16 @@ public class FilmController
 	{
 		return services.createFilm(film);
 	}
+	
+	@PostMapping("/deleteFilm")
+	public void deleteFilm(@RequestBody String filmTitle)
+	{
+		services.deleteFilm(filmTitle);
+	}
+	
+	@PostMapping("/updateFilm")
+	public void updateFilm(@RequestBody String filmTitle)
+	{
+		services.updateFilm(filmTitle);
+	}
 }

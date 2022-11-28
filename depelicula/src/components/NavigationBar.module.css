@@ -1,15 +1,42 @@
 .navBarOption {
-    padding-left: 25px;
+    padding-left: 15px;
     text-decoration: none;
-    color:black;
-    font-size: 19px;
+    color:aliceblue;
+    font-size: 20px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .navBarFirstOption {
+    color: azure;
     padding-left: 33px;
     text-decoration: none;
-    color:black;
-    font-size: 19px;
+    font-size: 20px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.dropdownOption {
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bold;
+    color:rgb(255, 255, 255);
+    font-size: 18px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.userText {
+    display: inline;
+    padding-right: 22px;
+    padding-left: 22px;
+    font-size: large;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.lgButton {
+    display: inline;
+    padding-left: 22px;
+}
+
+.adminButton {
+    display: inline;
+    padding-right: 20px;
 }

@@ -1,21 +1,16 @@
 package com.example.DePeliculaBE.models;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "film")
-public class Film
+@Table(name = "anime")
+public class Anime
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idfilm;
+	private long idanime;
 	
 	@Column(name = "title")
 	private String title;
@@ -23,8 +18,8 @@ public class Film
 	@Column(name = "genre")
 	private String genre;
 	
-	@Column(name = "release_date")
-	private Date release_date;
+	@Column(name = "seasons")
+	private int seasons;
 	
 	@Column(name = "summary")
 	private String summary;
@@ -35,12 +30,12 @@ public class Film
 	@Column(name = "trailer_url")
 	private String trailer_url;
 
-	public long getIdfilm() {
-		return idfilm;
+	public long getIdanime() {
+		return idanime;
 	}
 
-	public void setIdfilm(long idfilm) {
-		this.idfilm = idfilm;
+	public void setIdanime(long idanime) {
+		this.idanime = idanime;
 	}
 
 	public String getTitle() {
@@ -59,12 +54,12 @@ public class Film
 		this.genre = genre;
 	}
 
-	public Date getRelease_date() {
-		return release_date;
+	public int getSeasons() {
+		return seasons;
 	}
 
-	public void setRelease_date(Date release_date) {
-		this.release_date = release_date;
+	public void setSeasons(int seasons) {
+		this.seasons = seasons;
 	}
 
 	public String getSummary() {
@@ -82,7 +77,7 @@ public class Film
 	public void setPoster(String poster) {
 		this.poster = poster;
 	}
-	
+
 	public String getTrailer_url() {
 		return trailer_url;
 	}
@@ -90,5 +85,4 @@ public class Film
 	public void setTrailer_url(String trailer_url) {
 		this.trailer_url = trailer_url;
 	}
-	
 }

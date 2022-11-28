@@ -1,23 +1,23 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { NavigationBar } from "./NavigationBar";
 import styles from "./MovieDetails.module.css";
+import { NavigationBar } from "./NavigationBar";
 import { Button, Modal } from "react-bootstrap";
 
-export function MovieDetails({ token })
+export function AnimeDetails({ token })
 {
     const {id} = useParams();
 
-    const [movie, setMovie] = useState([]);
+    const [anime, setAnime] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:8080/films/' + id)
+        fetch('http://localhost:8080/animes/' + id)
         .then(response => response.json())
-        .then(data => setMovie(data))
-    }, []);
+        .then(data => setAnime(data))
+        }, []);
 
-    const poster_image = "https://image.tmdb.org/t/p/w300" + movie.poster;
+    const poster_image = "https://image.tmdb.org/t/p/w300" + anime.poster;
 
     function openModal() {
         setShowModal(true);
@@ -52,7 +52,7 @@ export function MovieDetails({ token })
 
     function WatchableTrailer() {
         if (token != null) {
-            return (<Link to={"/films/" + id + "/trailer"}>
+            return (<Link to={"/animes/" + id + "/trailer"}>
                         <button className={styles.trailerButton}>Watch trailer</button>
                     </Link>);
         } else {
@@ -60,26 +60,24 @@ export function MovieDetails({ token })
         }
     }
 
-    console.log(showModal);
-
     return (
-        <div className={styles.bg}>
+        <div>
             <NavigationBar token={token}></NavigationBar>
             <div className={styles.movieDetailsPlace}>
                 <img className={styles.movieDetailsPoster} src={poster_image}></img>
                 <ul className={styles.detailsList}>
                     <li className={styles.detailsElement}><strong>Title</strong></li>
-                    <li className={styles.detailsElement}>{movie.title}</li>
+                    <li className={styles.detailsElement}>{anime.title}</li>
                     <li className={styles.detailsElement}><strong>Genre</strong></li>
-                    <li className={styles.detailsElement}>{movie.genre}</li>
-                    <li className={styles.detailsElement}><strong>Release date</strong></li>
-                    <li className={styles.detailsElement}>{movie.release_date}</li>
+                    <li className={styles.detailsElement}>{anime.genre}</li>
+                    <li className={styles.detailsElement}><strong>Seasons</strong></li>
+                    <li className={styles.detailsElement}>{anime.seasons}</li>
                     <li className={styles.detailsElement}><strong>Summary</strong></li>
-                    <li className={styles.detailsElement}>{movie.summary}</li>
+                    <li className={styles.detailsElement}>{anime.summary}</li>
                 </ul>
                 <WatchableTrailer></WatchableTrailer>
                 <LoginException></LoginException>
-                <Link to="/films">
+                <Link to="/animes">
                     <button className={styles.cancelButton}>Go back</button>
                 </Link>
             </div>

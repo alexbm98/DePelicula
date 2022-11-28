@@ -34,4 +34,15 @@ public class FilmServices
 	{
 		return repository.save(film);
 	}
+	
+	public void deleteFilm(String filmTitle)
+	{
+		Optional<Film> f = repository.findByTitle(filmTitle);
+		repository.delete(f.get());
+	}
+	
+	public void updateFilm(String filmTitle)
+	{
+		
+	}
 }
