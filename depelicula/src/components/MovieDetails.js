@@ -11,6 +11,8 @@ export function MovieDetails({ token })
     const [movie, setMovie] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
+    token = JSON.parse(localStorage.getItem("token"));
+
     useEffect(() => {
         fetch('http://localhost:8080/films/' + id)
         .then(response => response.json())
@@ -59,8 +61,6 @@ export function MovieDetails({ token })
             return (<button className={styles.trailerButton} onClick={openModal}>Watch trailer</button>);
         }
     }
-
-    console.log(showModal);
 
     return (
         <div className={styles.bg}>

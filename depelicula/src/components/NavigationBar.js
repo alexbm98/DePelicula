@@ -166,6 +166,78 @@ function DeleteFilmModal({ showModal, setShowModal }) {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
+        body: title
+    }).then(response => response)
+      .then(data => {
+        console.log(data);
+            if (data.ok == false) {
+                setMsg("This film doesn't exist!");
+            }
+            else {
+                setMsg("");
+                closeModal();
+                window.location.reload();
+            }
+        })
+  }
+
+  return (
+    <div>
+      <Modal show={show} onHide={closeModal}>
+      <Modal.Header closeButton>
+        <Modal.Title>DELETE FILM</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Title</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Film title..."
+              autoFocus
+              onChange={e => setTitle(e.target.value)}
+            />
+          </Form.Group>
+          <label style={{ color: 'red', padding: '9px', fontSize: '15px', fontFamily: 'Calibri', fontStretch: '50%' }}>{msg}</label>
+        </Form>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={closeModal}>
+          Close
+        </Button>
+        <Button variant="primary" onClick={handleSubmit} type="submit">
+          Delete
+        </Button>
+      </Modal.Footer>
+    </Modal>
+    </div>
+  );
+}
+
+function UpdateFilmModal({ showModal, setShowModal }) {
+
+  const [title, setTitle] = useState();
+  const [msg, setMsg] = useState("");
+
+  const [show, setShow] = useState(showModal);
+
+  useEffect(() => {
+    setShow(showModal);
+  }, [showModal]);
+
+  function closeModal() {
+    setShow(false);
+    setShowModal(false);
+  }
+
+  const handleSubmit = async e => {
+
+    await fetch('http://localhost:8080/films/updateFilm',{
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
         body: {
             title
         }
