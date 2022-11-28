@@ -11,7 +11,7 @@ The films page is the main page of the app. Here you can find all the available 
 On the other hand, we've the anime page, where you can find differents animes (there will be more in the future) with the same information as in the case of 
 the films.
 
-<img src="images/FilmsProjectF6.png?raw=true" style="border-radius:50%">
+<img src="images/FilmsProjectF6.PNG?raw=true" style="border-radius:50%">
 
 ## Films/Series/Anime Details page
 Here you can see the details page, where you can see the information of a film, with an option to see the trailer.
@@ -20,11 +20,11 @@ Here you can see the details page, where you can see the information of a film, 
 
 In case you are not logged in, the application will prompt you to log in if you want to watch the trailer.
 
-<img src="images/FilmsProjectF12.png?raw=true" style="border-radius:50%">
+<img src="images/FilmsProjectF12.PNG?raw=true" style="border-radius:50%">
 
 ## Trailer page
 If you click the "Watch trailer" button and you are correctly logged in, you'll be redirected to the trailer page, where you can see the trailer itself.
 
-<img src="images/FilmsProjectF4.png?raw=true" style="border-radius:50%">
+<img src="images/FilmsProjectF4.PNG?raw=true" style="border-radius:50%">
 
 Data extracted from: The Movie Database (TMDB)
