@@ -59,6 +59,6 @@ To conclude, these are the login and signin pages, where you can access with an 
 
 I will be uploading more features soon, stay tuned!
 
-
+------------------------ o ------------------------
 
 Data extracted from: The Movie Database (TMDB)
