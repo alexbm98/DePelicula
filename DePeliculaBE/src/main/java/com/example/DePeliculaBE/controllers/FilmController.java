@@ -54,8 +54,14 @@ public class FilmController
 	}
 	
 	@PostMapping("/updateFilm")
-	public void updateFilm(@RequestBody String filmTitle)
+	public Film updateFilm(@RequestBody Film film)
 	{
-		services.updateFilm(filmTitle);
+		return services.updateFilm(film);
+	}
+	
+	@PostMapping("/filmExists")
+	public Optional<Film> checkExistingFilm(@RequestBody String filmTitle)
+	{
+		return services.filmExists(filmTitle);
 	}
 }

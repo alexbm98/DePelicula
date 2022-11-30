@@ -41,8 +41,22 @@ public class FilmServices
 		repository.delete(f.get());
 	}
 	
-	public void updateFilm(String filmTitle)
+	public Film updateFilm(Film film)
 	{
+		Optional<Film> f = repository.findByTitle(film.getTitle());
+				
+		f.get().setTitle(film.getTitle());
+		f.get().setGenre(film.getGenre());
+		f.get().setRelease_date(film.getRelease_date());
+		f.get().setSummary(film.getSummary());
+		f.get().setPoster(film.getPoster());
+		f.get().setTrailer_url(film.getTrailer_url());
 		
+		return repository.save(f.get());
+	}
+	
+	public Optional<Film> filmExists(String filmTitle)
+	{
+		return repository.findByTitle(filmTitle);
 	}
 }

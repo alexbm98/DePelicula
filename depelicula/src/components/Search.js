@@ -11,15 +11,11 @@ export function Search({ token }) {
 
     let [movie, setMovie] = useState("");
 
-    console.log(filmTitle);
-
     useEffect(() => {
         fetch('http://localhost:8080/films/search/' + filmTitle)
         .then(response => response.json())
         .then(data => setMovie(data))
         });
-
-        console.log(movie);
 
     return (
         <div>
