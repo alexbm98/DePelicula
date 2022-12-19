@@ -14,10 +14,13 @@
     background-color: azure;
     margin: 1px 0 0 1px;
     box-shadow: 0 0 0 1px rgb(255, 255, 255);
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
 }
 
 .moviePoster:hover {
-    opacity: 90%;
+    opacity: 75%;
 }
 
 .movieDetails {

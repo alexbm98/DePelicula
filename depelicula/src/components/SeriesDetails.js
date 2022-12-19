@@ -9,23 +9,23 @@ import AmazonLogo from '../images/amazonprime_logo.webp';
 import DisneyLogo from '../images/disney_logo.jpg';
 import AppleTVLogo from '../images/appletv_logo.png';
 
-export function MovieDetails({ token })
+export function SeriesDetails({ token })
 {
     const {id} = useParams();
 
-    const [movie, setMovie] = useState([]);
+    const [series, setSeries] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
 
     token = JSON.parse(localStorage.getItem("token"));
 
     useEffect(() => {
-        fetch('http://localhost:8080/films/' + id)
+        fetch('http://localhost:8080/series/' + id)
         .then(response => response.json())
-        .then(data => setMovie(data))
+        .then(data => setSeries(data))
     }, []);
 
-    const poster_image = "https://image.tmdb.org/t/p/w300" + movie.poster;
+    const poster_image = "https://image.tmdb.org/t/p/w300" + series.poster;
 
     function openModal() {
         setShowModal(true);
@@ -60,7 +60,7 @@ export function MovieDetails({ token })
 
     function WatchableTrailer() {
         if (token != null) {
-            return (<Link to={"/films/" + id + "/trailer"}>
+            return (<Link to={"/series/" + id + "/trailer"}>
                         <button className={styles.trailerButton}>Watch trailer</button>
                     </Link>);
         } else {
@@ -75,13 +75,15 @@ export function MovieDetails({ token })
                 <img className={styles.movieDetailsPoster} src={poster_image}></img>
                 <ul className={styles.detailsList}>
                     <li className={styles.detailsElement}><strong>Title</strong></li>
-                    <li className={styles.detailsElement}>{movie.title}</li>
+                    <li className={styles.detailsElement}>{series.title}</li>
                     <li className={styles.detailsElement}><strong>Genre</strong></li>
-                    <li className={styles.detailsElement}>{movie.genre}</li>
+                    <li className={styles.detailsElement}>{series.genre}</li>
+                    <li className={styles.detailsElement}><strong>Seasons</strong></li>
+                    <li className={styles.detailsElement}>{series.seasons}</li>
                     <li className={styles.detailsElement}><strong>Release date</strong></li>
-                    <li className={styles.detailsElement}>{movie.release_date}</li>
+                    <li className={styles.detailsElement}>{series.release_date}</li>
                     <li className={styles.detailsElement}><strong>Summary</strong></li>
-                    <li className={styles.detailsElement}>{movie.summary}</li>
+                    <li className={styles.detailsElement}>{series.summary}</li>
                 </ul>
                 <WatchableTrailer></WatchableTrailer>
                 <LoginException></LoginException>
@@ -91,7 +93,7 @@ export function MovieDetails({ token })
                 <span>Watch now on:</span>
                 <div className={styles.logo_text}>
                     <ul>
-                        {String(movie.platforms).split(",").map((platform) => {
+                        {String(series.platforms).split(",").map((platform) => {
                             if (platform == "Netflix") {
                                 return <a href="https://www.netflix.com/es/"><img className={styles.platform_icon} src={NetflixLogo}></img></a>
                             } else if (platform == "HBOMax") {
@@ -103,7 +105,7 @@ export function MovieDetails({ token })
                             } else if (platform == "AppleTV") {
                                 return <a href="https://www.apple.com/es/apple-tv-plus/"><img className={styles.platform_icon} src={AppleTVLogo}></img></a>
                             } else {
-                                return <p className={styles.OiT}>Only in theaters</p>
+                                return <span>Only in theaters</span>
                             }
                         })}
                     </ul>

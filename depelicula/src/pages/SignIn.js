@@ -8,13 +8,15 @@ export function SignIn() {
     const [email, setEmail] = useState();
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
+    const [passwordConf, setPasswordConf] = useState();
     const [msg, setMsg] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = async e => {
         e.preventDefault();
 
-        await fetch('http://localhost:8080/auth/signup',{
+        if (password == passwordConf) {
+            await fetch('http://localhost:8080/auth/signup',{
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -28,7 +30,6 @@ export function SignIn() {
             })
         }).then(response => response.json())
           .then(async data => {
-                console.log(data);
                 if (data.message == "User registered successfully!") {
                     setMsg("User registered successfully!");
                     await timeout(2000);
@@ -38,6 +39,11 @@ export function SignIn() {
                     setMsg("Error");
                 }
             })
+        } else {
+            setMsg("The password and the confirmation password don't match!");
+        }
+
+        
     }
 
     function SuccessfulReg() {
@@ -68,6 +74,7 @@ export function SignIn() {
                                 onChange={e => setEmail(e.target.value)}
                             />
                         </div>
+                        <label className={styles.warningAdvice}>It must be a valid email</label>
                         <div className="form-group mt-3">
                             <label>Username</label>
                             <input
@@ -86,12 +93,14 @@ export function SignIn() {
                                 onChange={e => setPassword(e.target.value)}
                             />
                         </div>
+                        <label className={styles.warningAdvice}>The password must contain letters and numbers</label>
                         <div className="form-group mt-3">
                             <label>Confirm password</label>
                             <input
                                 type="password"
                                 className="form-control mt-1"
                                 placeholder="Enter your password again..."
+                                onChange={e => setPasswordConf(e.target.value)}
                             />
                         </div>
                         <SuccessfulReg></SuccessfulReg>

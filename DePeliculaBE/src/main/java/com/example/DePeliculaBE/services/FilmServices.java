@@ -1,5 +1,6 @@
 package com.example.DePeliculaBE.services;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +19,16 @@ public class FilmServices
 	public List<Film> listAllFilms()
 	{
 		return repository.findAll();
+	}
+	
+	public Collection<Film> listFilmsBySearch(String searchContent)
+	{
+		return repository.findBySearch(searchContent);
+	}
+	
+	public Collection<Film> listFilmsByGenre(String genre)
+	{
+		return repository.findByGenre(genre);
 	}
 	
 	public Optional<Film> listFilmById(long id)
@@ -51,6 +62,7 @@ public class FilmServices
 		f.get().setSummary(film.getSummary());
 		f.get().setPoster(film.getPoster());
 		f.get().setTrailer_url(film.getTrailer_url());
+		f.get().setPlatforms(film.getPlatforms());
 		
 		return repository.save(f.get());
 	}

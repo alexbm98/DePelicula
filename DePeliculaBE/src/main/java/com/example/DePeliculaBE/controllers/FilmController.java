@@ -1,5 +1,6 @@
 package com.example.DePeliculaBE.controllers;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,6 +40,18 @@ public class FilmController
 	public Optional<Film> showFilmByTitle(@PathVariable String filmTitle)
 	{
 		return services.listFilmByTitle(filmTitle);
+	}
+	
+	@PostMapping("/filmsSearch")
+	public Collection<Film> showFilmsBySearch(@RequestBody String searchContent)
+	{
+		return services.listFilmsBySearch(searchContent);
+	}
+	
+	@PostMapping("/filmsByGenre")
+	public Collection<Film> showFilmsByGenre(@RequestBody String genre)
+	{
+		return services.listFilmsByGenre(genre);
 	}
 	
 	@PostMapping("/addFilm")

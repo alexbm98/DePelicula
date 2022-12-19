@@ -10,12 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "film")
-public class Film
+@Table(name = "series")
+public class Series
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idfilm;
+	private long idseries;
 	
 	@Column(name = "title")
 	private String title;
@@ -23,6 +23,9 @@ public class Film
 	@Column(name = "genre")
 	private String genre;
 	
+	@Column(name = "seasons")
+	private String seasons;
+
 	@Column(name = "release_date")
 	private Date release_date;
 	
@@ -39,11 +42,11 @@ public class Film
 	private String platforms;
 
 	public long getIdfilm() {
-		return idfilm;
+		return idseries;
 	}
 
-	public void setIdfilm(long idfilm) {
-		this.idfilm = idfilm;
+	public void setIdfilm(long idseries) {
+		this.idseries = idseries;
 	}
 
 	public String getTitle() {
@@ -60,6 +63,14 @@ public class Film
 
 	public void setGenre(String genre) {
 		this.genre = genre;
+	}
+	
+	public String getSeasons() {
+		return seasons;
+	}
+
+	public void setSeasons(String seasons) {
+		this.seasons = seasons;
 	}
 
 	public Date getRelease_date() {

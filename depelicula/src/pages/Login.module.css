@@ -54,3 +54,9 @@
     padding-left: 12%;
     padding-right: 12%;
 }
+
+.warningAdvice {
+    font-size: small;
+    color: gray;
+    padding-left: 1%;
+}

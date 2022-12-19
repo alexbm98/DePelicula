@@ -2,19 +2,22 @@ import { useState, useEffect } from "react";
 import { MovieCard } from "./MovieCard";
 import { NavigationBar } from "./NavigationBar";
 import styles from "./MoviesGrid.module.css";
+import { useParams } from "react-router-dom";
 
-export function MoviesGrid({ token })
+export function MoviesGenre({ token })
 {
-    const [films, setFilms] = useState([]);
-    const [movies, setMovies] = useState("%");
+    let {genre} = useParams();
+
+    let [films, setFilms] = useState([]);
+    let [movies, setMovies] = useState("%");
 
     useEffect(() => {
-        fetch('http://localhost:8080/films/filmsSearch', {
+        fetch('http://localhost:8080/films/filmsByGenre', {
             method: 'POST',
-            body: movies
+            body: genre
         }).then(response => response.json())
         .then(data => {setFilms(data);})
-    }, [movies]);
+    }, [genre]);
 
     return (
         <div>
